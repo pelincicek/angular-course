@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class AppComponent implements OnInit {
-  data: any;
+  data: any[] = [];
 
   constructor(private apiService: ApiService) {}
 

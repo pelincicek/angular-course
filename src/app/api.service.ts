@@ -3,15 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // Bu satırın olduğundan emin olun
 })
 export class ApiService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com';
+  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<any> {
-    const url = `${this.apiUrl}/posts`;
-    return this.http.get(url);
+  getData(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
