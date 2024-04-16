@@ -4,6 +4,7 @@
 
 ```bash
 npm install
+ng serve
 open http://localhost:4200;
 ```
 
