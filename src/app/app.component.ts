@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from './api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [],
-  template: `<h1>Hello world!</h1>`,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: true,
 })
-export class AppComponent {
-  title = 'homes';
+export class AppComponent implements OnInit {
+  data: any;
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apiService.getData().subscribe((response) => {
+      this.data = response;
+    });
+  }
 }
